@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "64E69E810644685277E65DFDD7975EC4DBE5DDA6",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "671C94D0B6C9BEFD737DE3554FB6637D3F4F0E69" : 0,
+    "64E69E810644685277E65DFDD7975EC4DBE5DDA6" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "54EE86A2-3B4F-48DA-AE74-D41986C2522D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "671C94D0B6C9BEFD737DE3554FB6637D3F4F0E69" : "",
+    "64E69E810644685277E65DFDD7975EC4DBE5DDA6" : "ImitateOneApp\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ImitateOneApp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ImitateOneApp.xcworkspace",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:sasuke6\/ImitateOneApp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "64E69E810644685277E65DFDD7975EC4DBE5DDA6"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:\/sasuke6\/App---WeatherXu.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "671C94D0B6C9BEFD737DE3554FB6637D3F4F0E69"
+    }
+  ]
+}
