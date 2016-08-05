@@ -9,6 +9,10 @@
 #import "AppDelegate.h"
 #import <RDVTabBarController.h>
 #import <RDVTabBarItem.h>
+#import "HCYMovieTableVC.h"
+#import "HCYMusicTableVC.h"
+#import "HCYReadVC.h"
+#import "HCYHomeVC.h"
 
 @interface AppDelegate ()
 
