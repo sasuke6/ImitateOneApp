@@ -18,7 +18,7 @@ pod 'MBProgressHUD'
 pod 'MJRefresh'
 pod 'NJKWebViewProgress'
 pod 'TPKeyboardAvoiding'
-pod 'RDVTabBarController'
+pod 'CYLTabBarController'
 pod 'SlackTextViewController'
 pod 'DZNEmptyDataSet'
 

@@ -23,6 +23,8 @@
 		15EBB2811D4C429300E68771 /* HCYMacro.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EBB2801D4C429300E68771 /* HCYMacro.m */; };
 		15EBB2841D4C42A600E68771 /* HCYUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EBB2831D4C42A600E68771 /* HCYUtility.m */; };
 		15EBB2871D4C42B300E68771 /* HCYVendors.m in Sources */ = {isa = PBXBuildFile; fileRef = 15EBB2861D4C42B300E68771 /* HCYVendors.m */; };
+		95D964D81E82CD1000ED6EF1 /* HCY.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D964D71E82CD1000ED6EF1 /* HCY.m */; };
+		95D964DC1E88162900ED6EF1 /* HCYHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D964DB1E88162900ED6EF1 /* HCYHTTPRequest.m */; };
 		A430D705EABC3E7F774EAEA7 /* libPods-ImitateOneAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D07B19E1496E97237E337D4 /* libPods-ImitateOneAppTests.a */; };
 		DFBBEE6803D7A3928A1309D6 /* libPods-ImitateOneApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C1F1D4D8036D7158AB1E9C /* libPods-ImitateOneApp.a */; };
 		E1E86067B2527AFCEF14F1C3 /* libPods-ImitateOneAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C83D81590939FCAAB3E976 /* libPods-ImitateOneAppUITests.a */; };
@@ -85,6 +87,11 @@
 		88A4F84E17248297FE3DB5FD /* Pods-ImitateOneAppUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImitateOneAppUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImitateOneAppUITests/Pods-ImitateOneAppUITests.release.xcconfig"; sourceTree = "<group>"; };
 		8A165266FEE43AFA92DC5C5A /* Pods-ImitateOneAppUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImitateOneAppUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImitateOneAppUITests/Pods-ImitateOneAppUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		94C83D81590939FCAAB3E976 /* libPods-ImitateOneAppUITests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ImitateOneAppUITests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		95D964D61E82CD1000ED6EF1 /* HCY.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCY.h; sourceTree = "<group>"; };
+		95D964D71E82CD1000ED6EF1 /* HCY.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCY.m; sourceTree = "<group>"; };
+		95D964D91E82D1CC00ED6EF1 /* HCYAPIConstant.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HCYAPIConstant.h; sourceTree = "<group>"; };
+		95D964DA1E88162900ED6EF1 /* HCYHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCYHTTPRequest.h; sourceTree = "<group>"; };
+		95D964DB1E88162900ED6EF1 /* HCYHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCYHTTPRequest.m; sourceTree = "<group>"; };
 		AE029AC4214461FD56EF5827 /* Pods-ImitateOneApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImitateOneApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImitateOneApp/Pods-ImitateOneApp.release.xcconfig"; sourceTree = "<group>"; };
 		B089810D87D802BAD5B05B95 /* Pods-ImitateOneApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImitateOneApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImitateOneApp/Pods-ImitateOneApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -146,7 +153,6 @@
 				15EBB2771D4C423200E68771 /* Common */,
 				15EBB2751D4C422600E68771 /* Feature */,
 				15EBB2741D4C422100E68771 /* Macro */,
-				15EBB2761D4C422D00E68771 /* Models */,
 				15EBB2731D4C421A00E68771 /* Resource */,
 				153C92AA1D4A30F500378F35 /* Supporting Files */,
 				15EBB2721D4C421200E68771 /* Utility */,
@@ -185,8 +191,9 @@
 		1590B9FC1D54EDD7009E99B8 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				1590BA0B1D54EF18009E99B8 /* HCYHomeVC.h */,
-				1590BA0C1D54EF18009E99B8 /* HCYHomeVC.m */,
+				95D964C51E82C91600ED6EF1 /* Controllers */,
+				15EBB2761D4C422D00E68771 /* Models */,
+				95D964CD1E82C9B900ED6EF1 /* Views */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -194,8 +201,9 @@
 		1590B9FD1D54EDE2009E99B8 /* Read */ = {
 			isa = PBXGroup;
 			children = (
-				1590BA081D54EF03009E99B8 /* HCYReadVC.h */,
-				1590BA091D54EF03009E99B8 /* HCYReadVC.m */,
+				95D964C81E82C93D00ED6EF1 /* Controllers */,
+				95D964CC1E82C9B200ED6EF1 /* Models */,
+				95D964D01E82C9D800ED6EF1 /* Views */,
 			);
 			path = Read;
 			sourceTree = "<group>";
@@ -203,8 +211,9 @@
 		1590B9FE1D54EDEA009E99B8 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				1590BA051D54EEDE009E99B8 /* HCYMusicTableVC.h */,
-				1590BA061D54EEDE009E99B8 /* HCYMusicTableVC.m */,
+				95D964C71E82C92D00ED6EF1 /* Controllers */,
+				95D964CB1E82C9AC00ED6EF1 /* Models */,
+				95D964CF1E82C9D400ED6EF1 /* Views */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -212,8 +221,9 @@
 		1590B9FF1D54EDF0009E99B8 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
-				1590BA001D54EEA1009E99B8 /* HCYMovieTableVC.h */,
-				1590BA011D54EEA1009E99B8 /* HCYMovieTableVC.m */,
+				95D964C61E82C92200ED6EF1 /* Controllers */,
+				95D964CA1E82C9A400ED6EF1 /* Models */,
+				95D964CE1E82C9CC00ED6EF1 /* Views */,
 				1590BA021D54EEA1009E99B8 /* HCYMovieTableVC.xib */,
 			);
 			path = Movie;
@@ -231,8 +241,8 @@
 		15EBB2721D4C421200E68771 /* Utility */ = {
 			isa = PBXGroup;
 			children = (
-				15EBB2821D4C42A600E68771 /* HCYUtility.h */,
-				15EBB2831D4C42A600E68771 /* HCYUtility.m */,
+				153C92B01D4A30F500378F35 /* ViewController.h */,
+				153C92B11D4A30F500378F35 /* ViewController.m */,
 			);
 			path = Utility;
 			sourceTree = "<group>";
@@ -258,6 +268,7 @@
 		15EBB2751D4C422600E68771 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				95D964D51E82CCFC00ED6EF1 /* Base */,
 				1590B9FC1D54EDD7009E99B8 /* Home */,
 				1590B9FF1D54EDF0009E99B8 /* Movie */,
 				1590B9FE1D54EDEA009E99B8 /* Music */,
@@ -278,8 +289,7 @@
 		15EBB2771D4C423200E68771 /* Common */ = {
 			isa = PBXGroup;
 			children = (
-				153C92B01D4A30F500378F35 /* ViewController.h */,
-				153C92B11D4A30F500378F35 /* ViewController.m */,
+				95D964C91E82C97000ED6EF1 /* Network */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -314,6 +324,112 @@
 				88A4F84E17248297FE3DB5FD /* Pods-ImitateOneAppUITests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		95D964C51E82C91600ED6EF1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1590BA0B1D54EF18009E99B8 /* HCYHomeVC.h */,
+				1590BA0C1D54EF18009E99B8 /* HCYHomeVC.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		95D964C61E82C92200ED6EF1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1590BA001D54EEA1009E99B8 /* HCYMovieTableVC.h */,
+				1590BA011D54EEA1009E99B8 /* HCYMovieTableVC.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		95D964C71E82C92D00ED6EF1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1590BA051D54EEDE009E99B8 /* HCYMusicTableVC.h */,
+				1590BA061D54EEDE009E99B8 /* HCYMusicTableVC.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		95D964C81E82C93D00ED6EF1 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				1590BA081D54EF03009E99B8 /* HCYReadVC.h */,
+				1590BA091D54EF03009E99B8 /* HCYReadVC.m */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		95D964C91E82C97000ED6EF1 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				15EBB2821D4C42A600E68771 /* HCYUtility.h */,
+				15EBB2831D4C42A600E68771 /* HCYUtility.m */,
+				95D964DA1E88162900ED6EF1 /* HCYHTTPRequest.h */,
+				95D964DB1E88162900ED6EF1 /* HCYHTTPRequest.m */,
+				95D964D91E82D1CC00ED6EF1 /* HCYAPIConstant.h */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		95D964CA1E82C9A400ED6EF1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		95D964CB1E82C9AC00ED6EF1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		95D964CC1E82C9B200ED6EF1 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		95D964CD1E82C9B900ED6EF1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		95D964CE1E82C9CC00ED6EF1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		95D964CF1E82C9D400ED6EF1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		95D964D01E82C9D800ED6EF1 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		95D964D51E82CCFC00ED6EF1 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				95D964D61E82CD1000ED6EF1 /* HCY.h */,
+				95D964D71E82CD1000ED6EF1 /* HCY.m */,
+			);
+			path = Base;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -578,11 +694,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				95D964D81E82CD1000ED6EF1 /* HCY.m in Sources */,
 				15EBB2841D4C42A600E68771 /* HCYUtility.m in Sources */,
 				1590BA071D54EEDE009E99B8 /* HCYMusicTableVC.m in Sources */,
 				1590BA031D54EEA1009E99B8 /* HCYMovieTableVC.m in Sources */,
 				153C92B21D4A30F500378F35 /* ViewController.m in Sources */,
 				153C92AF1D4A30F500378F35 /* AppDelegate.m in Sources */,
+				95D964DC1E88162900ED6EF1 /* HCYHTTPRequest.m in Sources */,
 				15EBB2871D4C42B300E68771 /* HCYVendors.m in Sources */,
 				15EBB2811D4C429300E68771 /* HCYMacro.m in Sources */,
 				15EBB27B1D4C427D00E68771 /* HCYModels.m in Sources */,

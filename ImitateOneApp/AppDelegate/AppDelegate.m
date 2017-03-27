@@ -7,14 +7,17 @@
 //
 
 #import "AppDelegate.h"
-#import <RDVTabBarController.h>
-#import <RDVTabBarItem.h>
 #import "HCYMovieTableVC.h"
 #import "HCYMusicTableVC.h"
 #import "HCYReadVC.h"
 #import "HCYHomeVC.h"
+#import "CYLTabBarController.h"
+#import "CYLTabBar.h"
+#import "CYLPlusButton.h"
 
 @interface AppDelegate ()
+
+@property (nonatomic, strong) CYLTabBarController *tabBarController;
 
 @end
 
@@ -24,8 +27,11 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    [self customizeInterface];
+    [self setupViewController];
+    [self.window setRootViewController:self.tabBarController];
     [self.window makeKeyAndVisible];
-    [self switchToMainView];
+    
     
     return YES;
 }
@@ -53,14 +59,10 @@
 /**
  *  ViewController
  */
-
-- (void)switchToMainView {
-    
-    RDVTabBarController *tabbarVC      = [[RDVTabBarController alloc] init];
-
+- (void)setupViewController {
     HCYHomeVC *homeVC                  = [[HCYHomeVC alloc] init];
     UINavigationController *homeVCNav  = [[UINavigationController alloc] initWithRootViewController:homeVC];
-    
+
     HCYReadVC *readVC                  = [[HCYReadVC alloc] init];
     UINavigationController *readVCNav  = [[UINavigationController alloc] initWithRootViewController:readVC];
 
@@ -69,35 +71,66 @@
 
     HCYMovieTableVC *movieVC           = [[HCYMovieTableVC alloc] init];
     UINavigationController *movieVCNav = [[UINavigationController alloc] initWithRootViewController:movieVC];
+    
+    CYLTabBarController *tabBarController = [[CYLTabBarController alloc] init];
+    [self customizeTabBarForController:tabBarController];
+    
+    [tabBarController setViewControllers:@[
+                                           homeVCNav,
+                                           readVCNav,
+                                           musicVCNav,
+                                           movieVCNav
+                                           ]];
+    self.tabBarController = tabBarController;
+}
 
-    tabbarVC.viewControllers           = @[homeVCNav, readVCNav, musicVCNav, movieVCNav];
-    
-    NSArray *titles = @[@"首页", @"阅读", @"音乐", @"电影"];
-    for (int i = 0; i < tabbarVC.viewControllers.count; i++) {
-        RDVTabBarItem *item  = tabbarVC.tabBar.items[i];
-        NSString *unselected = [NSString stringWithFormat:@"tab_default_%d",i+1];
-        NSString *selected   = [NSString stringWithFormat:@"tab_selected_%d", i+1];
-        [item setFinishedSelectedImage:[UIImage imageNamed:selected]
-           withFinishedUnselectedImage:[UIImage imageNamed:unselected]];
-        item.title           = titles[i];
-        [self setupTabbarItem:item];
-    }
-    
-    RDVTabBar *tabBar = [tabbarVC tabBar];
-    [tabBar setFrame:CGRectMake(CGRectGetMinX(tabBar.frame), CGRectGetMinY(tabBar.frame), CGRectGetWidth(tabBar.frame), 60)];
 
+- (void)customizeTabBarForController:(CYLTabBarController *)tabBarController {
+    NSDictionary *dict1 = @{
+                            CYLTabBarItemTitle : @"首页",
+                            CYLTabBarItemImage : @"homeSelectedV4",
+                            CYLTabBarItemSelectedImage : @"homeUnselectedV4",
+                            };
     
-    self.window.rootViewController = tabbarVC;
+    NSDictionary *dict2 = @{
+                            CYLTabBarItemTitle : @"阅读",
+                            CYLTabBarItemImage : @"readSelectedV4",
+                            CYLTabBarItemSelectedImage : @"readUnselectedV4",
+                            };
+    
+    NSDictionary *dict3 = @{
+                            CYLTabBarItemTitle : @"音乐",
+                            CYLTabBarItemImage : @"musicSelectedV4",
+                            CYLTabBarItemSelectedImage : @"musicUnselectedV4",
+                            };
+    
+    NSDictionary *dict4 = @{
+                            CYLTabBarItemTitle : @"电影",
+                            CYLTabBarItemImage : @"movieSelectedV4",
+                            CYLTabBarItemSelectedImage : @"movieUnselectedV4",
+                            };
+    
+    NSArray *tabBarItemsAttributes = @[ dict1, dict2, dict3, dict4 ];
+    tabBarController.tabBarItemsAttributes = tabBarItemsAttributes;
+}
+
+- (void)customizeInterface {
+    // 普通状态下的文字属性
+    NSMutableDictionary *normalAttrs = [NSMutableDictionary dictionary];
+    normalAttrs[NSForegroundColorAttributeName] = [UIColor grayColor];
+    
+    // 选中状态下的文字属性
+    NSMutableDictionary *selectedAttrs = [NSMutableDictionary dictionary];
+    selectedAttrs[NSForegroundColorAttributeName] = [UIColor darkGrayColor];
+    
+    // 设置文字属性
+    UITabBarItem *tabBar = [UITabBarItem appearance];
+    [tabBar setTitleTextAttributes:normalAttrs forState:UIControlStateNormal];
+    [tabBar setTitleTextAttributes:selectedAttrs forState:UIControlStateSelected];
+    
     
 }
 
-- (void)setupTabbarItem:(RDVTabBarItem *)tabbarItem {
-    
-    NSDictionary *unselectedTitleAttr    = @{NSForegroundColorAttributeName:[UIColor grayColor]};
-    tabbarItem.unselectedTitleAttributes = unselectedTitleAttr;
 
-    NSDictionary *selectedTitleAttr      = @{NSForegroundColorAttributeName:[UIColor blueColor]};
-    tabbarItem.selectedTitleAttributes   = selectedTitleAttr;
-}
 
 @end
