@@ -11,9 +11,12 @@
 #import "HCYMusicTableVC.h"
 #import "HCYReadVC.h"
 #import "HCYHomeVC.h"
-#import "CYLTabBarController.h"
-#import "CYLTabBar.h"
-#import "CYLPlusButton.h"
+#import "HCYAPIConstant.h"
+#import <CYLTabBarController.h>
+#import <CYLTabBar.h>
+#import <CYLPlusButton.h>
+#import <YTKNetwork.h>
+
 
 @interface AppDelegate ()
 
@@ -26,10 +29,16 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
+    // set viewcontroller
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
     [self customizeInterface];
     [self setupViewController];
     [self.window setRootViewController:self.tabBarController];
+    
+    // set network config
+    YTKNetworkConfig *config = [YTKNetworkConfig sharedConfig];
+    config.baseUrl = ServerAddress;
+    
     [self.window makeKeyAndVisible];
     
     
