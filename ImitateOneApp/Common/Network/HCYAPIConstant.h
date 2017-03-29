@@ -16,7 +16,7 @@
 #define ServerAddress  @"http://v3.wufazhuce.com:8000/api"
 
 //获取首页信息
-#define HomePage @"onelist/%@/%@" //章节，和地区
+#define HomePage @"onelist" //章节，和地区 onelist/%@/%@
 
 #define HomeList @"onelist/dlist"
 

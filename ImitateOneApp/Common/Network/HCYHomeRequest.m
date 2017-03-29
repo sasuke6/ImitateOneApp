@@ -25,7 +25,7 @@
 }
 
 - (NSString *)requestUrl {
-    return [NSString stringWithFormat:@"/%@/%@", _page, _area];
+    return [NSString stringWithFormat:@"%@/%@/%@", HomePage, _page, _area];
 }
 
 - (YTKRequestMethod)requestMethod {

@@ -10,7 +10,6 @@ pod 'Reachability'
 pod 'YYKit'
 pod 'YTKNetwork'
 pod 'YTKKeyValueStore'
-pod 'JSPatch'
 
 pod 'Masonry'
 pod 'SVProgressHUD'

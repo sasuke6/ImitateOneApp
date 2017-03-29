@@ -19,9 +19,6 @@ PODS:
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
-  - JSPatch (1.1.3):
-    - JSPatch/Core (= 1.1.3)
-  - JSPatch/Core (1.1.3)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
@@ -45,7 +42,6 @@ PODS:
 DEPENDENCIES:
   - CYLTabBarController
   - DZNEmptyDataSet
-  - JSPatch
   - Masonry
   - MBProgressHUD
   - MJRefresh
@@ -63,7 +59,6 @@ SPEC CHECKSUMS:
   CYLTabBarController: 2de9a4c26f50d33574398becf8e7b0aaed794240
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
-  JSPatch: 02cfed591cb907bbfe80a346666e5a35fc2d349d
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
@@ -76,6 +71,6 @@ SPEC CHECKSUMS:
   YTKNetwork: c4b0c29c9d639dc050d475de69ee626d53eac598
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: f7eb76acfa065e8fd16a6c8347f648bbce515a40
+PODFILE CHECKSUM: e55c8f647624f5bfcecc0c7f06f731e213b091e6
 
 COCOAPODS: 1.0.1
