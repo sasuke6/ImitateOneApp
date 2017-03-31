@@ -11,5 +11,21 @@
 
 @implementation HCYHomeItem
 
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"contentId" : @"id",
+             @"categoryId" : @"p",
+             @"displayCategoryId" : @"ext.desc",
+             @"title" : @"title",
+             @"forward" : @"forward",
+             @"imgUrl" : @"img_url",
+             @"likeCount" : @"like_count",
+             @"postDate" : @"post_date",
+             @"lateUpdateDate" : @"last_update_date",
+             @"volume" : @"volume",
+             @"wordInfo" : @"word_info",
+             @"contentTypeId" : @"content_type",
+             @"contentBgColor" : @"content_bgcolor",
+             };
+}
 
 @end
