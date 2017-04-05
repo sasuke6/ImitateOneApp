@@ -7,6 +7,9 @@
 //
 
 #import "HCYHomeVC.h"
+#import "HCYHomeRequest.h"
+#import "HCYHomeItem.h"
+#import <YYKit.h>
 
 @interface HCYHomeVC ()
 
@@ -18,6 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
+    [self requestHomeContent];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,5 +39,19 @@
     // Pass the selected object to the new view controller.
 }
 */
+
+#pragma mark - Private Method
+
+- (void)requestHomeContent {
+    HCYHomeRequest *request = [[HCYHomeRequest alloc] initRequestHomeContent];
+    [request startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"success");
+        HCYHomeItem *homeItem = [HCYHomeItem modelWithJSON:request.responseJSONObject];
+        NSLog(@"the model is %@", homeItem);
+    } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
+        NSLog(@"failed");
+    }];
+    
+}
 
 @end
