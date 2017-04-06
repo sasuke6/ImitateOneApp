@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <YYKit.h>
+#import <YYModel.h>
 
 @interface HCYHomeItem : NSObject
 

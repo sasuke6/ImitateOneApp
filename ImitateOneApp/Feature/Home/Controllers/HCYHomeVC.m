@@ -9,7 +9,7 @@
 #import "HCYHomeVC.h"
 #import "HCYHomeRequest.h"
 #import "HCYHomeItem.h"
-#import <YYKit.h>
+#import <YYModel.h>
 
 @interface HCYHomeVC ()
 
@@ -43,11 +43,14 @@
 #pragma mark - Private Method
 
 - (void)requestHomeContent {
-    HCYHomeRequest *request = [[HCYHomeRequest alloc] initRequestHomeContent];
+    NSString *page = @"3858";
+    NSString *area = @"%E5%B9%BF%E5%B7%9E%E5%B8%82"; //广州市
+    
+    HCYHomeRequest *request = [[HCYHomeRequest alloc] initWithPage:page area:area];
     [request startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSLog(@"success");
-        HCYHomeItem *homeItem = [HCYHomeItem modelWithJSON:request.responseJSONObject];
-        NSLog(@"the model is %@", homeItem);
+        HCYHomeItem *homeItem = [HCYHomeItem yy_modelWithJSON:request.responseJSONObject[@"data"][@"content_list"]];
+        NSLog(@"the model is %@", homeItem.title);
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSLog(@"failed");
     }];

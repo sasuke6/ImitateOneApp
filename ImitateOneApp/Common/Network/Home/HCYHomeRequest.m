@@ -15,17 +15,18 @@
 }
 
 
-- (id)initRequestHomeContent {
+- (id)initWithPage:(NSString *)page area:(NSString *)area {
     self = [super init];
     if (self) {
-        _page = @"3858";
-        _area = @"广州";
+        _page = page;
+        _area = area;
     }
     return self;
 }
 
 - (NSString *)requestUrl {
-    return @"onelist/3858/%E5%B9%BF%E5%B7%9E%E5%B8%82"; //广州市
+    NSString *requestUrl = [NSString stringWithFormat:@"%@/%@/%@", HomePage, _page, _area];
+    return requestUrl;
 }
 
 - (YTKRequestMethod)requestMethod {

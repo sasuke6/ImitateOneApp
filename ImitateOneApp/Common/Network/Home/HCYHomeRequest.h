@@ -11,6 +11,6 @@
 
 @interface HCYHomeRequest : YTKRequest
 
-- (id)initRequestHomeContent;
+- (id)initWithPage:(NSString *)page area:(NSString *)area;
 
 @end
