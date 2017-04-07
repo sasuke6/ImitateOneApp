@@ -9,7 +9,9 @@
 #import <Foundation/Foundation.h>
 #import <YYModel.h>
 
-@interface HCYHomeItem : NSObject
+@class HCYHomeItem;
+
+@interface HCYHomeItem : NSObject<YYModel>
 
 @property (nonatomic, copy) NSString *contentId;
 @property (nonatomic, copy) NSString *categoryId;

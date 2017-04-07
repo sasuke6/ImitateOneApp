@@ -13,6 +13,8 @@
 
 @interface HCYHomeVC ()
 
+@property (strong, nonatomic) NSArray *dataSource;
+
 @end
 
 @implementation HCYHomeVC
@@ -49,12 +51,23 @@
     HCYHomeRequest *request = [[HCYHomeRequest alloc] initWithPage:page area:area];
     [request startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSLog(@"success");
-        HCYHomeItem *homeItem = [HCYHomeItem yy_modelWithJSON:request.responseJSONObject[@"data"][@"content_list"]];
-        NSLog(@"the model is %@", homeItem.title);
+        NSArray *arr = [NSArray yy_modelArrayWithClass:[HCYHomeItem class] json:request.responseJSONObject[@"data"][@"content_list"]];
+        self.dataSource = arr;
+//        [self testFunction:[self homeItemAtIndex:0]];
+        HCYHomeItem *item = arr[0];
+        NSLog(@"tilte is %@", item.title);
+        
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
         NSLog(@"failed");
     }];
     
 }
 
+- (HCYHomeItem *)homeItemAtIndex:(NSInteger)index {
+    return _dataSource[index];
+}
+
+- (void)testFunction:(HCYHomeItem *)homeItem {
+    NSLog(@"the title is %@", homeItem.title);
+}
 @end

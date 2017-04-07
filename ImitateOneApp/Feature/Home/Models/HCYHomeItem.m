@@ -13,8 +13,8 @@
 
 + (NSDictionary *)modelCustomPropertyMapper {
     return @{@"contentId" : @"id",
-             @"categoryId" : @"p",
-             @"displayCategoryId" : @"ext.desc",
+             @"categoryId" : @"category",
+             @"displayCategoryId" : @"display_category",
              @"title" : @"title",
              @"forward" : @"forward",
              @"imgUrl" : @"img_url",
