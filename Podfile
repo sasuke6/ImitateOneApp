@@ -22,7 +22,7 @@ pod 'TPKeyboardAvoiding'
 pod 'CYLTabBarController'
 pod 'SlackTextViewController'
 pod 'DZNEmptyDataSet'
-
+pod 'CocoaLumberjack', '~> 2.2.0'
   target 'ImitateOneAppTests' do
     inherit! :search_paths
     # Pods for testing
