@@ -11,6 +11,11 @@
 #import "Constants.h"
 #import <CocoaLumberjack.h>
 
+#pragma mark - Framework
+
+#define LOG_LEVEL_DEF ddLogLevel
+static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
+
 @interface HCYBaseViewController ()
 
 @end
@@ -150,6 +155,9 @@
         [HUD hideAnimated:NO];
     }
 }
+
+#pragma mark - UI
+
 
 
 @end

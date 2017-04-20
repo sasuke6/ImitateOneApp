@@ -6,8 +6,9 @@
 //  Copyright © 2016 ZhiyongXu. All rights reserved.
 //
 
+#import "HCYBaseViewController.h"
 #import <UIKit/UIKit.h>
 
-@interface HCYHomeVC : UIViewController
+@interface HCYHomeVC : HCYBaseViewController
 
 @end
