@@ -10,8 +10,14 @@
 #import "HCYHomeRequest.h"
 #import "HCYHomeItem.h"
 #import <YYModel.h>
+#import <GMCPagingScrollView.h>
 
-@interface HCYHomeVC ()
+@interface HCYHomeVC () <GMCPagingScrollViewDataSource, GMCPagingScrollViewDelegate> {
+    
+}
+
+@property (strong, nonatomic) GMCPagingScrollView *pageScrollView;
+
 
 @property (strong, nonatomic) NSArray *dataSource;
 
@@ -28,6 +34,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    
+//    UIImageView *titleView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"nav_home_title"]];
+    self.navigationItem.title  = @"一个";
+    [self addNavigationBarRightSearchItem];
+    [self addNavigationBarLeftMeItem];
+    
     self.view.backgroundColor = [UIColor whiteColor];
     [self requestHomeContent];
     
@@ -38,17 +51,17 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - UI
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)addNavigationBarRightSearchItem {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_search"] style:UIBarButtonItemStylePlain target:self action:@selector(showSearchingViewController)];
 }
-*/
 
-#pragma mark - Private Method
+- (void)addNavigationBarLeftMeItem {
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_me_normal"] style:UIBarButtonItemStylePlain target:self action:@selector(pushMeViewController)];
+}
+
+#pragma mark - Network Request
 
 - (void)requestHomeContent {
     NSString *page = @"3858";
@@ -76,4 +89,8 @@
 - (void)testFunction:(HCYHomeItem *)homeItem {
     NSLog(@"the title is %@", homeItem.title);
 }
+
+#pragma mark - Action
+
+
 @end

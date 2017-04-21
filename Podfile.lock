@@ -27,6 +27,8 @@ PODS:
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
+  - GMCPagingScrollView (1.0.3)
+  - KMNavigationBarTransition (1.0.0)
   - Masonry (1.0.2)
   - MBProgressHUD (1.0.0)
   - MJRefresh (3.1.12)
@@ -39,6 +41,7 @@ PODS:
   - SlackTextViewController (1.9.5)
   - SVProgressHUD (2.1.2)
   - TPKeyboardAvoiding (1.3.1)
+  - UITableView+FDTemplateLayoutCell (1.4)
   - YTKKeyValueStore (0.1.2):
     - FMDB (~> 2.0)
   - YTKNetwork (2.0.3):
@@ -56,6 +59,8 @@ DEPENDENCIES:
   - CocoaLumberjack (~> 2.2.0)
   - CYLTabBarController
   - DZNEmptyDataSet
+  - GMCPagingScrollView
+  - KMNavigationBarTransition
   - Masonry
   - MBProgressHUD
   - MJRefresh
@@ -64,6 +69,7 @@ DEPENDENCIES:
   - SlackTextViewController
   - SVProgressHUD
   - TPKeyboardAvoiding
+  - UITableView+FDTemplateLayoutCell
   - YTKKeyValueStore
   - YTKNetwork
   - YYCache
@@ -76,6 +82,8 @@ SPEC CHECKSUMS:
   CYLTabBarController: 2de9a4c26f50d33574398becf8e7b0aaed794240
   DZNEmptyDataSet: 9525833b9e68ac21c30253e1d3d7076cc828eaa7
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  GMCPagingScrollView: 32285a8e2c0162a4709dfcb4fefb0b9896f87db2
+  KMNavigationBarTransition: b3fb8337f7a1e4542add07fd6c45fb9980794d59
   Masonry: 7c429b56da9d4ee0bbb3ed77a5ea710d6a5df39e
   MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
   MJRefresh: b96cdb21c4aa75a7b07654311ab2f315c497e806
@@ -84,6 +92,7 @@ SPEC CHECKSUMS:
   SlackTextViewController: fbcdadbb8090673f604484ff5b6eb8d77baed42a
   SVProgressHUD: c404a55d78acbeb7ebb78b76d3faf986475a6994
   TPKeyboardAvoiding: 0d6af20e95e2850f4c621841225b59ec7d8dd852
+  UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
   YTKKeyValueStore: 4d002941540dd5108fa23009b71e0f2f937f7a0f
   YTKNetwork: c4b0c29c9d639dc050d475de69ee626d53eac598
   YYCache: 8105b6638f5e849296c71f331ff83891a4942952
@@ -91,6 +100,6 @@ SPEC CHECKSUMS:
   YYModel: 2a7fdd96aaa4b86a824e26d0c517de8928c04b30
   YYWebImage: 5f7f36aee2ae293f016d418c7d6ba05c4863e928
 
-PODFILE CHECKSUM: 4a13be2c4af12070e078f21c537adb636151ae14
+PODFILE CHECKSUM: d306fbe95198061d5432cb78b755b7c39b6aa22a
 
 COCOAPODS: 1.0.1

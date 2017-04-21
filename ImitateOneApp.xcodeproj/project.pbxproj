@@ -26,6 +26,7 @@
 		958147AD1E8C011900D98801 /* HCYHomeItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 958147AC1E8C011900D98801 /* HCYHomeItem.m */; };
 		95D964DF1E8AB6E600ED6EF1 /* HCYHomeRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 95D964DE1E8AB6E600ED6EF1 /* HCYHomeRequest.m */; };
 		95EB39F41EA6643B00DC69EC /* HCYBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EB39F31EA6643B00DC69EC /* HCYBaseViewController.m */; };
+		95EB39FE1EAA60F700DC69EC /* HCYSearchVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 95EB39FD1EAA60F700DC69EC /* HCYSearchVC.m */; };
 		A430D705EABC3E7F774EAEA7 /* libPods-ImitateOneAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D07B19E1496E97237E337D4 /* libPods-ImitateOneAppTests.a */; };
 		DFBBEE6803D7A3928A1309D6 /* libPods-ImitateOneApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 33C1F1D4D8036D7158AB1E9C /* libPods-ImitateOneApp.a */; };
 		E1E86067B2527AFCEF14F1C3 /* libPods-ImitateOneAppUITests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 94C83D81590939FCAAB3E976 /* libPods-ImitateOneAppUITests.a */; };
@@ -96,6 +97,8 @@
 		95EB39F21EA6643B00DC69EC /* HCYBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCYBaseViewController.h; sourceTree = "<group>"; };
 		95EB39F31EA6643B00DC69EC /* HCYBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCYBaseViewController.m; sourceTree = "<group>"; };
 		95EB39F61EA66D7300DC69EC /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		95EB39FC1EAA60F700DC69EC /* HCYSearchVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HCYSearchVC.h; sourceTree = "<group>"; };
+		95EB39FD1EAA60F700DC69EC /* HCYSearchVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HCYSearchVC.m; sourceTree = "<group>"; };
 		AE029AC4214461FD56EF5827 /* Pods-ImitateOneApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImitateOneApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-ImitateOneApp/Pods-ImitateOneApp.release.xcconfig"; sourceTree = "<group>"; };
 		B089810D87D802BAD5B05B95 /* Pods-ImitateOneApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ImitateOneApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ImitateOneApp/Pods-ImitateOneApp.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -272,6 +275,7 @@
 		15EBB2751D4C422600E68771 /* Feature */ = {
 			isa = PBXGroup;
 			children = (
+				95EB39F81EAA60AE00DC69EC /* Common */,
 				95D964D51E82CCFC00ED6EF1 /* Base */,
 				1590B9FC1D54EDD7009E99B8 /* Home */,
 				1590B9FF1D54EDF0009E99B8 /* Movie */,
@@ -493,6 +497,15 @@
 				95EB39F61EA66D7300DC69EC /* Constants.h */,
 			);
 			name = Header;
+			sourceTree = "<group>";
+		};
+		95EB39F81EAA60AE00DC69EC /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				95EB39FC1EAA60F700DC69EC /* HCYSearchVC.h */,
+				95EB39FD1EAA60F700DC69EC /* HCYSearchVC.m */,
+			);
+			name = Common;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -763,6 +776,7 @@
 				153C92AF1D4A30F500378F35 /* AppDelegate.m in Sources */,
 				95EB39F41EA6643B00DC69EC /* HCYBaseViewController.m in Sources */,
 				15EBB2871D4C42B300E68771 /* HCYVendors.m in Sources */,
+				95EB39FE1EAA60F700DC69EC /* HCYSearchVC.m in Sources */,
 				950967CB1E993F1600465DD3 /* HCYHomeView.m in Sources */,
 				15EBB2811D4C429300E68771 /* HCYMacro.m in Sources */,
 				1590BA0D1D54EF18009E99B8 /* HCYHomeVC.m in Sources */,

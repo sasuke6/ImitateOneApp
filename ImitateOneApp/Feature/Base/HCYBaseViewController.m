@@ -8,6 +8,7 @@
 
 #import "HCYBaseViewController.h"
 #import <MBProgressHUD/MBProgressHUD.h>
+#import "HCYSearchVC.h"
 #import "Constants.h"
 #import <CocoaLumberjack.h>
 
@@ -157,6 +158,16 @@ static const DDLogLevel ddLogLevel = DDLogLevelVerbose;
 }
 
 #pragma mark - UI
+
+#pragma mark - Action
+
+- (void)pushMeViewController {
+    
+}
+
+- (void)showSearchingViewController {
+    [self.navigationController presentViewController:[[UINavigationController alloc] initWithRootViewController:[[HCYSearchVC alloc] init]] animated:YES completion:NULL];
+}
 
 
 

@@ -26,5 +26,9 @@ typedef NS_ENUM(NSUInteger, HCYPopMenuType) {
 - (void)showHUDWithText:(NSString *)text delay:(NSTimeInterval)delay;
 
 
+- (void)showSearchingViewController;
+
+- (void)pushMeViewController;
+
 
 @end
