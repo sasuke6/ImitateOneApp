@@ -126,15 +126,15 @@
 			<string>2147483647</string>
 			<key>files</key>
 			<array>
+				<string>95EB3A041EAE43FC00DC69EC</string>
 				<string>1590BA071D54EEDE009E99B8</string>
 				<string>1590BA031D54EEA1009E99B8</string>
+				<string>95EB3A011EAE435C00DC69EC</string>
 				<string>153C92B21D4A30F500378F35</string>
 				<string>153C92AF1D4A30F500378F35</string>
 				<string>95EB39F41EA6643B00DC69EC</string>
 				<string>15EBB2871D4C42B300E68771</string>
 				<string>95EB39FE1EAA60F700DC69EC</string>
-				<string>950967CB1E993F1600465DD3</string>
-				<string>15EBB2811D4C429300E68771</string>
 				<string>1590BA0D1D54EF18009E99B8</string>
 				<string>153C92AC1D4A30F500378F35</string>
 				<string>95D964DF1E8AB6E600ED6EF1</string>
@@ -238,7 +238,6 @@
 				<string>15EBB2781D4C423800E68771</string>
 				<string>15EBB2771D4C423200E68771</string>
 				<string>15EBB2751D4C422600E68771</string>
-				<string>15EBB2741D4C422100E68771</string>
 				<string>15EBB2731D4C421A00E68771</string>
 				<string>153C92AA1D4A30F500378F35</string>
 				<string>15EBB2721D4C421200E68771</string>
@@ -1288,20 +1287,6 @@
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
 		</dict>
-		<key>15EBB2741D4C422100E68771</key>
-		<dict>
-			<key>children</key>
-			<array>
-				<string>15EBB27F1D4C429300E68771</string>
-				<string>15EBB2801D4C429300E68771</string>
-			</array>
-			<key>isa</key>
-			<string>PBXGroup</string>
-			<key>path</key>
-			<string>Macro</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
 		<key>15EBB2751D4C422600E68771</key>
 		<dict>
 			<key>children</key>
@@ -1361,39 +1346,6 @@
 			<string>AppDelegate</string>
 			<key>sourceTree</key>
 			<string>&lt;group&gt;</string>
-		</dict>
-		<key>15EBB27F1D4C429300E68771</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>HCYMacro.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>15EBB2801D4C429300E68771</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>HCYMacro.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>15EBB2811D4C429300E68771</key>
-		<dict>
-			<key>fileRef</key>
-			<string>15EBB2801D4C429300E68771</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
 		</dict>
 		<key>15EBB2851D4C42B300E68771</key>
 		<dict>
@@ -1677,39 +1629,6 @@ fi
 			<key>sourceTree</key>
 			<string>BUILT_PRODUCTS_DIR</string>
 		</dict>
-		<key>950967C91E993F1600465DD3</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.h</string>
-			<key>path</key>
-			<string>HCYHomeView.h</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>950967CA1E993F1600465DD3</key>
-		<dict>
-			<key>fileEncoding</key>
-			<string>4</string>
-			<key>isa</key>
-			<string>PBXFileReference</string>
-			<key>lastKnownFileType</key>
-			<string>sourcecode.c.objc</string>
-			<key>path</key>
-			<string>HCYHomeView.m</string>
-			<key>sourceTree</key>
-			<string>&lt;group&gt;</string>
-		</dict>
-		<key>950967CB1E993F1600465DD3</key>
-		<dict>
-			<key>fileRef</key>
-			<string>950967CA1E993F1600465DD3</string>
-			<key>isa</key>
-			<string>PBXBuildFile</string>
-		</dict>
 		<key>950967CC1E993F2200465DD3</key>
 		<dict>
 			<key>children</key>
@@ -1925,8 +1844,8 @@ fi
 			<key>children</key>
 			<array>
 				<string>950967CC1E993F2200465DD3</string>
-				<string>950967C91E993F1600465DD3</string>
-				<string>950967CA1E993F1600465DD3</string>
+				<string>95EB3A021EAE43FC00DC69EC</string>
+				<string>95EB3A031EAE43FC00DC69EC</string>
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
@@ -2036,8 +1955,6 @@ fi
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Controller</string>
 			<key>path</key>
 			<string>Controller</string>
 			<key>sourceTree</key>
@@ -2049,8 +1966,6 @@ fi
 			<array/>
 			<key>isa</key>
 			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Models</string>
 			<key>path</key>
 			<string>Models</string>
 			<key>sourceTree</key>
@@ -2059,11 +1974,12 @@ fi
 		<key>95EB39F11EA663E700DC69EC</key>
 		<dict>
 			<key>children</key>
-			<array/>
+			<array>
+				<string>95EB39FF1EAE435C00DC69EC</string>
+				<string>95EB3A001EAE435C00DC69EC</string>
+			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Views</string>
 			<key>path</key>
 			<string>Views</string>
 			<key>sourceTree</key>
@@ -2110,8 +2026,6 @@ fi
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Header</string>
 			<key>path</key>
 			<string>Header</string>
 			<key>sourceTree</key>
@@ -2137,8 +2051,6 @@ fi
 			</array>
 			<key>isa</key>
 			<string>PBXGroup</string>
-			<key>name</key>
-			<string>Common</string>
 			<key>path</key>
 			<string>Common</string>
 			<key>sourceTree</key>
@@ -2174,6 +2086,76 @@ fi
 		<dict>
 			<key>fileRef</key>
 			<string>95EB39FD1EAA60F700DC69EC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>95EB39FF1EAE435C00DC69EC</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>name</key>
+			<string>HCYBaseView.h</string>
+			<key>path</key>
+			<string>HCYBaseView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>95EB3A001EAE435C00DC69EC</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>name</key>
+			<string>HCYBaseView.m</string>
+			<key>path</key>
+			<string>HCYBaseView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>95EB3A011EAE435C00DC69EC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>95EB3A001EAE435C00DC69EC</string>
+			<key>isa</key>
+			<string>PBXBuildFile</string>
+		</dict>
+		<key>95EB3A021EAE43FC00DC69EC</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.h</string>
+			<key>path</key>
+			<string>HCYHomeView.h</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>95EB3A031EAE43FC00DC69EC</key>
+		<dict>
+			<key>fileEncoding</key>
+			<string>4</string>
+			<key>isa</key>
+			<string>PBXFileReference</string>
+			<key>lastKnownFileType</key>
+			<string>sourcecode.c.objc</string>
+			<key>path</key>
+			<string>HCYHomeView.m</string>
+			<key>sourceTree</key>
+			<string>&lt;group&gt;</string>
+		</dict>
+		<key>95EB3A041EAE43FC00DC69EC</key>
+		<dict>
+			<key>fileRef</key>
+			<string>95EB3A031EAE43FC00DC69EC</string>
 			<key>isa</key>
 			<string>PBXBuildFile</string>
 		</dict>

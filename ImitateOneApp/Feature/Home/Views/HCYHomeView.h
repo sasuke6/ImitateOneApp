@@ -2,12 +2,23 @@
 //  HCYHomeView.h
 //  ImitateOneApp
 //
-//  Created by ZhiyongXu on 08/04/2017.
+//  Created by ZhiyongXu on 24/04/2017.
 //  Copyright © 2017 ZhiyongXu. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+#import "HCYBaseView.h"
 
-@interface HCYHomeView : NSObject
+FOUNDATION_EXPORT NSString *const kHCYHomeViewID;
+
+typedef NS_ENUM(NSUInteger, HCYActionType) {
+    MLBActionTypeDiary,
+    MLBActionTypePraise,
+    MLBActionTypeMore,
+};
+
+@interface HCYHomeView : HCYBaseView
+
+@property (nonatomic, copy) void (^clickedButton)(HCYActionType type);
+
 
 @end

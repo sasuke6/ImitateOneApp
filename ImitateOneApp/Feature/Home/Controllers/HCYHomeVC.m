@@ -11,6 +11,7 @@
 #import "HCYHomeItem.h"
 #import <YYModel.h>
 #import <GMCPagingScrollView.h>
+#import "Constants.h"
 
 @interface HCYHomeVC () <GMCPagingScrollViewDataSource, GMCPagingScrollViewDelegate> {
     
@@ -41,6 +42,7 @@
     [self addNavigationBarRightSearchItem];
     [self addNavigationBarLeftMeItem];
     
+    [self setupViews];
     self.view.backgroundColor = [UIColor whiteColor];
     [self requestHomeContent];
     
@@ -51,14 +53,30 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Private Method
+
+- (void)setupViews {
+    __weak typeof(self) weakSelf = self;
+    
+    _pageScrollView = ({
+        GMCPagingScrollView *pagingScrollView = [GMCPagingScrollView new];
+        pagingScrollView.backgroundColor = HCYViewControllerBGColor;
+        
+        
+        
+        pagingScrollView;
+    });
+    
+}
+
 #pragma mark - UI
 
 - (void)addNavigationBarRightSearchItem {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"icon_search"] style:UIBarButtonItemStylePlain target:self action:@selector(showSearchingViewController)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"navBarSearchIcon"] style:UIBarButtonItemStylePlain target:self action:@selector(showSearchingViewController)];
 }
 
 - (void)addNavigationBarLeftMeItem {
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"nav_me_normal"] style:UIBarButtonItemStylePlain target:self action:@selector(pushMeViewController)];
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"userCenter"] style:UIBarButtonItemStylePlain target:self action:@selector(pushMeViewController)];
 }
 
 #pragma mark - Network Request
