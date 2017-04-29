@@ -11,9 +11,9 @@
 FOUNDATION_EXPORT NSString *const kHCYHomeViewID;
 
 typedef NS_ENUM(NSUInteger, HCYActionType) {
-    MLBActionTypeDiary,
-    MLBActionTypePraise,
-    MLBActionTypeMore,
+    HCYActionTypeDiary,
+    HCYActionTypePraise,
+    HCYActionTypeMore,
 };
 
 @interface HCYHomeView : HCYBaseView

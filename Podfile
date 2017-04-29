@@ -8,7 +8,7 @@ target 'ImitateOneApp' do
   # Pods for ImitateOneApp
 pod 'Reachability'
 pod 'YYModel'
-pod 'YYWebImage'
+pod 'SDWebImage', '~>3.7.5'
 pod 'YYCache'
 pod 'YTKNetwork'
 pod 'YTKKeyValueStore'

@@ -10,6 +10,8 @@
 #import "HCYHomeItem.h"
 #import <Masonry.h>
 #import "Constants.h"
+#import "UIImageView+HCYSDImageLoader.h"
+#import "HCYUtility.h"
 
 NSString *const kHCYHomeViewID = @"MLBHomeViewID";
 
@@ -23,9 +25,6 @@ NSString *const kHCYHomeViewID = @"MLBHomeViewID";
 @property (strong, nonatomic) UIView *contentView;
 @property (strong, nonatomic) UIImageView *coverView;
 @property (strong, nonatomic) UILabel *titleLabel;
-@property (strong, nonatomic) UIImageView *weatherView;
-@property (strong, nonatomic) UILabel *temperatureLabel;
-@property (strong, nonatomic) UILabel *locationLabel;
 @property (strong, nonatomic) UILabel *dateLabel;
 @property (strong, nonatomic) UITextView *contentTextView;
 @property (strong, nonatomic) UILabel *volLabel;
@@ -110,8 +109,8 @@ NSString *const kHCYHomeViewID = @"MLBHomeViewID";
         imageView.contentMode = UIViewContentModeScaleAspectFit;
         imageView.clipsToBounds = YES;
         imageView.userInteractionEnabled = YES;
-//        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(coverTapped)];
-//        [imageView addGestureRecognizer:tap];
+        UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(coverTapped)];
+        [imageView addGestureRecognizer:tap];
         [_contentView addSubview:imageView];
         [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.top.right.equalTo(_contentView).insets(UIEdgeInsetsMake(6, 6, 0, 6));
@@ -125,8 +124,8 @@ NSString *const kHCYHomeViewID = @"MLBHomeViewID";
     _titleLabel = ({
         UILabel *label = [UILabel new];
         label.backgroundColor = [UIColor whiteColor];
-//        label.textColor = MLBGrayTextColor;
-//        label.font = FontWithSize(10);
+        label.textColor = HCYGrayTextColor;
+        label.font = FontWithSize(10);
         label.textAlignment = NSTextAlignmentRight;
         [label setContentHuggingPriority:251 forAxis:UILayoutConstraintAxisHorizontal];
         [_contentView addSubview:label];
@@ -142,8 +141,8 @@ NSString *const kHCYHomeViewID = @"MLBHomeViewID";
     _contentTextView = ({
         UITextView *textView = [UITextView new];
         textView.backgroundColor = [UIColor whiteColor];
-//        textView.textColor = MLBLightBlackTextColor;
-//        textView.font = FontWithSize(14);
+        textView.textColor = HCYLightBlackTextColor;
+        textView.font = FontWithSize(14);
         textView.editable = NO;
         [_contentView addSubview:textView];
         [textView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -158,8 +157,8 @@ NSString *const kHCYHomeViewID = @"MLBHomeViewID";
     _dateLabel = ({
         UILabel *label = [UILabel new];
         label.backgroundColor = [UIColor whiteColor];
-//        label.textColor = MLBDarkGrayTextColor;
-//        label.font = FontWithSize(12);
+        label.textColor = HCYDarkGrayTextColor;
+        label.font = FontWithSize(12);
         [_contentView addSubview:label];
         [label mas_makeConstraints:^(MASConstraintMaker *make) {
             make.top.equalTo(_contentTextView.mas_bottom).offset(10);
@@ -170,48 +169,6 @@ NSString *const kHCYHomeViewID = @"MLBHomeViewID";
         label;
     });
     
-    _locationLabel = ({
-        UILabel *label = [UILabel new];
-        label.backgroundColor = [UIColor whiteColor];
-//        label.textColor = MLBDarkGrayTextColor;
-//        label.font = FontWithSize(12);
-        [_contentView addSubview:label];
-        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(_dateLabel);
-            make.right.equalTo(_dateLabel.mas_left).offset(-10);
-        }];
-        
-        label;
-    });
-    
-    _temperatureLabel = ({
-        UILabel *label = [UILabel new];
-        label.backgroundColor = [UIColor whiteColor];
-//        label.textColor = MLBDarkGrayTextColor;
-//        label.font = FontWithSize(12);
-        [_contentView addSubview:label];
-        [label mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.centerY.equalTo(_dateLabel);
-            make.right.equalTo(_locationLabel.mas_left).offset(-2);
-        }];
-        
-        label;
-    });
-    
-    _weatherView = ({
-        UIImageView *imageView = [UIImageView new];
-        imageView.backgroundColor = [UIColor whiteColor];
-        imageView.contentMode = UIViewContentModeScaleAspectFit;
-        [_contentView addSubview:imageView];
-        [imageView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.width.height.equalTo(@24);
-            make.centerY.equalTo(_dateLabel);
-            make.right.equalTo(_temperatureLabel.mas_left).offset(-5);
-        }];
-        
-        imageView;
-    });
-    
     
 }
 
@@ -219,14 +176,38 @@ NSString *const kHCYHomeViewID = @"MLBHomeViewID";
 
 - (void)diaryButtonClicked {
     if (_clickedButton) {
-        _clickedButton(MLBActionTypeDiary);
+        _clickedButton(HCYActionTypeDiary);
     }
 }
 
 - (void)likeButtonClicked {
     if (_clickedButton) {
-        _clickedButton(MLBActionTypePraise);
+        _clickedButton(HCYActionTypePraise);
     }
+}
+
+- (void)coverTapped {
+    
+}
+
+#pragma mark - Public Method
+- (void)configureViewWithHomeItem:(HCYHomeItem *)homeItem atIndex:(NSInteger)index {
+    
+}
+
+- (void)configureViewWithHomeItem:(HCYHomeItem *)homeItem atIndex:(NSInteger)index inViewController:(HCYBaseViewController *)parentViewController {
+    self.viewIndex = index;
+    self.parentViewController = parentViewController;
+    [_coverView hcy_sd_setImageWithURL:homeItem.imgUrl placeholderImageName:@"home_cover_placeholder" cachePlachoderImage:NO];
+    _titleLabel.text = homeItem.title;
+    _dateLabel.text = [HCYUtility stringDateFormatWithddMMMyyyyEEEByNormalDateString:homeItem.postDate];
+    
+    _contentTextView.attributedText = [HCYUtility hcy_attributedStringWithText:homeItem.forward lineSpacing:10 font:_contentTextView.font textColor:_contentTextView.textColor];
+    
+    _textViewHeightConstraint.equalTo(@(ceilf([HCYUtility hcy_rectWithAttributedString:_contentTextView.attributedText size:CGSizeMake((SCREEN_WIDTH - 24 - 12), CGFLOAT_MAX)].size.height) + 50));
+    _volLabel.text = homeItem.volume;
+    _scrollView.contentOffset = CGPointZero;
+
 }
 
 
