@@ -30,5 +30,7 @@ typedef NS_ENUM(NSUInteger, HCYPopMenuType) {
 
 - (void)pushMeViewController;
 
+- (void)showHUDServerError;
+
 
 @end

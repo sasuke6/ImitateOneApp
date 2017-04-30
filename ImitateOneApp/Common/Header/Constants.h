@@ -20,10 +20,12 @@
 #define HCYGrayTextColor                        [UIColor colorWithWhite:177 / 255.0 alpha:1]// #B1B1B1
 #define HCYLightBlackTextColor                  [UIColor colorWithWhite:90 / 255.0 alpha:1]// #5A5A5A
 #define HCYDarkGrayTextColor                    [UIColor colorWithWhite:173 / 255.0 alpha:1]// #ADADAD
+#define HCYAppThemeColor                        [UIColor colorWithRed:142 / 255.0 green:182 / 255.0 blue:230 / 255.0 alpha:1]// #8EB6E6
 
 // HUD
 #define HUD_DELAY                               1.5
 
+#define HCYPullToRefreshBorderWidth             4
 
 // 字体
 #pragma mark - font
@@ -43,5 +45,11 @@
 #define StringByTrimWhiteSpace(text)    [text stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]]
 #define IsStringEmpty(string)           (!string || [@"" isEqualToString:string])
 #define IsStringNotEmpty(string)        (string && ![@"" isEqualToString:string])
+
+
+#define HCYCacheFilesFolderName                 @"CacheFiles"
+#define HCYCacheHomeItemFileName                @"HCYCacheHomeItem"
+#define DocumentsDirectory      [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0]
+#define HCYCacheHomeItemFilePath                [NSString stringWithFormat:@"%@/%@/%@", DocumentsDirectory, HCYCacheFilesFolderName, HCYCacheHomeItemFileName]
 
 #endif /* Constants_h */

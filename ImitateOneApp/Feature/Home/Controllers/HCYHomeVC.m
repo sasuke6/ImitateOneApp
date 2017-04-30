@@ -12,14 +12,16 @@
 #import <YYModel.h>
 #import <GMCPagingScrollView.h>
 #import "Constants.h"
+#import "HCYHomeView.h"
+#import "AAPullToRefresh.h"
+#import <Masonry.h>
 
 @interface HCYHomeVC () <GMCPagingScrollViewDataSource, GMCPagingScrollViewDelegate> {
-    
+    AAPullToRefresh *pullToRefreshLeft;
+    AAPullToRefresh *pullToRefreshRight;
 }
 
 @property (strong, nonatomic) GMCPagingScrollView *pageScrollView;
-
-
 @property (strong, nonatomic) NSArray *dataSource;
 
 @end
@@ -49,7 +51,7 @@
 }
 
 - (void)didReceiveMemoryWarning {
-
+    
 }
 
 #pragma mark - Private Method
@@ -60,6 +62,33 @@
     _pageScrollView = ({
         GMCPagingScrollView *pagingScrollView = [GMCPagingScrollView new];
         pagingScrollView.backgroundColor = HCYViewControllerBGColor;
+        [pagingScrollView registerClass:[HCYHomeView class] forReuseIdentifier:kHCYHomeViewID];
+        pagingScrollView.dataSource = self;
+        pagingScrollView.delegate = self;
+        pagingScrollView.pageInsets = UIEdgeInsetsZero;
+        pagingScrollView.interpageSpacing = 0;
+        pullToRefreshLeft = [pagingScrollView.scrollView addPullToRefreshPosition:AAPullToRefreshPositionLeft actionHandler:^(AAPullToRefresh *v) {
+            [weakSelf refreshHomeMore];
+            [v performSelector:@selector(stopIndicatorAnimation) withObject:nil afterDelay:1];
+        }];
+        pullToRefreshLeft.threshold = 100;
+        pullToRefreshLeft.borderColor = HCYAppThemeColor;
+        pullToRefreshLeft.borderWidth = HCYPullToRefreshBorderWidth;
+        pullToRefreshLeft.imageIcon = [UIImage new];
+        
+        pullToRefreshRight = [pagingScrollView.scrollView addPullToRefreshPosition:AAPullToRefreshPositionRight actionHandler:^(AAPullToRefresh *v) {
+            [weakSelf showPreviousList];
+            [v performSelector:@selector(stopIndicatorAnimation) withObject:nil afterDelay:1];
+        }];
+        pullToRefreshRight.borderColor = HCYAppThemeColor;
+        pullToRefreshRight.borderWidth = HCYPullToRefreshBorderWidth;
+        pullToRefreshRight.imageIcon = [UIImage new];
+        
+        [self.view addSubview:pagingScrollView];
+        [pagingScrollView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo(self.view);
+        }];
+        pagingScrollView.hidden = YES;
         
         
         
@@ -86,15 +115,17 @@
     
     HCYHomeRequest *request = [[HCYHomeRequest alloc] initWithPage:page area:area];
     [request startWithCompletionBlockWithSuccess:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSLog(@"success");
-        NSArray *arr = [NSArray yy_modelArrayWithClass:[HCYHomeItem class] json:request.responseJSONObject[@"data"][@"content_list"]];
-        self.dataSource = arr;
-//        [self testFunction:[self homeItemAtIndex:0]];
-        HCYHomeItem *item = arr[0];
-        NSLog(@"tilte is %@", item.title);
+        NSArray *array = [NSArray yy_modelArrayWithClass:[HCYHomeItem class] json:request.responseJSONObject[@"data"][@"content_list"]];
+        if (array) {
+            self.dataSource = array;
+            dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+                [NSKeyedArchiver archiveRootObject:_dataSource toFile:HCYCacheHomeItemFilePath];
+            });
+
+        }
         
     } failure:^(__kindof YTKBaseRequest * _Nonnull request) {
-        NSLog(@"failed");
+        [self showHUDServerError];
     }];
     
 }
@@ -108,6 +139,45 @@
 }
 
 #pragma mark - Action
+
+- (void)refreshHomeMore {
+    [_pageScrollView setCurrentPageIndex:0 reloadData:NO];
+    // 刷新
+    [self requestHomeContent];
+}
+
+- (void)showPreviousList {
+    [_pageScrollView setCurrentPageIndex:(_dataSource.count - 1) reloadData:NO];
+    // 显示往期列表
+}
+
+
+#pragma mark - GMCPagingScrollViewDataSource
+- (NSUInteger)numberOfPagesInPagingScrollView:(GMCPagingScrollView *)pagingScrollView {
+    return _dataSource.count;
+}
+
+- (UIView *)pagingScrollView:(GMCPagingScrollView *)pagingScrollView pageForIndex:(NSUInteger)index {
+    HCYHomeView *view = [pagingScrollView dequeueReusablePageWithIdentifier:kHCYHomeViewID];
+    [view configureViewWithHomeItem:[self homeItemAtIndex:index] atIndex:index inViewController:self];
+    
+    return view;
+}
+
+#pragma mark - GMCPagingScrollViewDelegate
+
+- (void)pagingScrollViewDidScroll:(GMCPagingScrollView *)pagingScrollView {
+    if (pagingScrollView.isDragging) {
+        CGPoint contentOffset = pagingScrollView.scrollView.contentOffset;
+        pagingScrollView.scrollView.contentOffset = CGPointMake(contentOffset.x, 0);
+    }
+}
+
+- (void)pagingScrollView:(GMCPagingScrollView *)pagingScrollView didScrollToPageAtIndex:(NSUInteger)index {
+
+}
+
+
 
 
 @end

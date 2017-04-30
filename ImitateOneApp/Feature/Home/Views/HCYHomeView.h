@@ -7,6 +7,7 @@
 //
 
 #import "HCYBaseView.h"
+@class HCYHomeItem;
 
 FOUNDATION_EXPORT NSString *const kHCYHomeViewID;
 
@@ -19,6 +20,8 @@ typedef NS_ENUM(NSUInteger, HCYActionType) {
 @interface HCYHomeView : HCYBaseView
 
 @property (nonatomic, copy) void (^clickedButton)(HCYActionType type);
+
+- (void)configureViewWithHomeItem:(HCYHomeItem *)homeItem atIndex:(NSInteger)index inViewController:(HCYBaseViewController *)parentViewController;
 
 
 @end

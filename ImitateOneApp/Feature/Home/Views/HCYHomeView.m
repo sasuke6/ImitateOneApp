@@ -13,7 +13,7 @@
 #import "UIImageView+HCYSDImageLoader.h"
 #import "HCYUtility.h"
 
-NSString *const kHCYHomeViewID = @"MLBHomeViewID";
+NSString *const kHCYHomeViewID = @"HCYHomeViewID";
 
 @interface HCYHomeView ()
 

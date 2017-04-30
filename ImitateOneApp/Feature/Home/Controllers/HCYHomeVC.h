@@ -8,7 +8,10 @@
 
 #import "HCYBaseViewController.h"
 #import <UIKit/UIKit.h>
+@class HCYHomeItem;
 
 @interface HCYHomeVC : HCYBaseViewController
+
+
 
 @end
